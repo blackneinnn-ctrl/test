@@ -1,0 +1,261 @@
+/* =========================================================
+   1. ベーススタイル (PC用・基本)
+   ========================================================= */
+* { box-sizing: border-box; }
+body {
+  margin: 0; padding: 0;
+  font-family: "Noto Sans JP", "Helvetica Neue", "Segoe UI", sans-serif;
+  
+  /* PCでは「薄っすら（0.85の白い膜）」 */
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.85), rgba(255, 255, 255, 0.85)),
+    url("Gemini_Generated_Image_telbp4telbp4telb.jpg");
+  
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center center;
+  background-color: #f0f2f5;
+
+  color: #333; line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================================
+   2. ヘッダー (Gentle Creative Style)
+   ========================================================= */
+.page-header {
+  /* PC用はゆったりと */
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  color: #fcfcfc;
+  padding: 80px 20px; 
+  text-align: center;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+.header-content h1 { margin: 0; font-size: 32px; font-weight: 700; letter-spacing: 0.05em; }
+.header-content p { margin: 10px 0 0; font-size: 16px; opacity: 0.95; font-weight: 300; }
+
+/* =========================================================
+   3. ナビゲーション
+   ========================================================= */
+.main-nav {
+  background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-container {
+  max-width: 900px; margin: 0 auto; display: flex; justify-content: center; flex-wrap: wrap;
+}
+.main-nav a {
+  display: block; padding: 15px 25px; color: #444; text-decoration: none;
+  font-weight: 500; font-size: 15px; transition: all 0.3s ease; border-bottom: 3px solid transparent;
+}
+.main-nav a:hover, .main-nav a.active {
+  color: #2c5364; border-bottom: 3px solid #2c5364; background-color: #f4f8fa;
+}
+
+/* =========================================================
+   4. メインコンテンツ & 共通セクション
+   ========================================================= */
+main {
+  max-width: 1000px; margin: 50px auto; padding: 0 20px;
+  min-height: 60vh; animation: fadeIn 0.8s ease;
+}
+section {
+  background: #fff; padding: 50px 40px; margin-bottom: 40px;
+  border-radius: 12px; box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+.section-title { text-align: center; margin-bottom: 40px; }
+.section-title h2 {
+  font-size: 28px; margin: 0; color: #203a43; font-weight: 700;
+  position: relative; display: inline-block;
+}
+.section-title h2::after {
+  content: ""; display: block; width: 50px; height: 3px;
+  background: #2c5364; margin: 10px auto 0; border-radius: 2px;
+}
+.section-title p {
+  font-size: 13px; color: #888; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px;
+}
+
+/* =========================================================
+   5. カードグリッド (Index用)
+   ========================================================= */
+.card-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;
+}
+a.service-card { text-decoration: none; color: inherit; display: block; }
+.service-card {
+  background: #fff; border: 1px solid #eee; padding: 30px;
+  border-radius: 12px; transition: transform 0.3s, box-shadow 0.3s; height: 100%;
+}
+.service-card:hover {
+  transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); border-color: #b0c4de;
+}
+.service-card h3 { color: #203a43; margin-top: 0; font-size: 20px; font-weight: 700; }
+
+/* =========================================================
+   6. 制作実績
+   ========================================================= */
+.works-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;
+}
+.work-card {
+  background: #fff; border-radius: 8px; overflow: hidden; transition: transform 0.3s ease;
+}
+.work-card:hover { transform: translateY(-5px); }
+.work-thumb {
+  width: 100%; aspect-ratio: 16 / 9; background: #333;
+  position: relative; display: flex; align-items: center; justify-content: center;
+}
+.work-thumb::after {
+  content: ""; display: block; width: 0; height: 0; border-style: solid;
+  border-width: 15px 0 15px 26px; border-color: transparent transparent transparent rgba(255,255,255,0.8);
+  transition: transform 0.3s;
+}
+.work-card:hover .work-thumb::after { transform: scale(1.2); }
+.work-info { padding: 15px 0; }
+.work-category {
+  display: inline-block; background: #eef4fc; color: #2c5364;
+  font-size: 11px; padding: 4px 10px; border-radius: 4px; font-weight: bold; margin-bottom: 8px;
+}
+.work-info h3 { font-size: 18px; margin: 0 0 5px; color: #203a43; }
+.work-info p { font-size: 13px; color: #777; margin: 0; }
+
+/* =========================================================
+   7. サービス詳細
+   ========================================================= */
+.service-detail {
+  display: flex; align-items: center; gap: 40px; margin-bottom: 40px;
+  border-bottom: 1px solid #eee; padding-bottom: 40px;
+  scroll-margin-top: 150px; border-radius: 8px; padding: 20px; transition: all 0.5s ease;
+}
+.service-detail:last-child { border-bottom: none; padding-bottom: 0; margin-bottom: 0; }
+.service-detail:target {
+  background-color: #f0f8ff; border: 2px solid #203a43; 
+  box-shadow: 0 0 20px rgba(32, 58, 67, 0.2); animation: flashHighlight 1.5s ease-out;
+  margin-bottom: 40px; padding: 30px; 
+}
+@keyframes flashHighlight {
+  0% { background-color: #fffde7; transform: scale(1.02); }
+  100% { background-color: #f0f8ff; transform: scale(1); }
+}
+.service-detail h3 { font-size: 22px; color: #203a43; margin-top: 0; }
+@media (min-width: 768px) { .service-detail:nth-child(even) { flex-direction: row-reverse; } }
+
+ul.check-list { list-style: none; padding: 0; margin: 15px 0; }
+ul.check-list li { position: relative; padding-left: 28px; margin-bottom: 8px; font-weight: 500; }
+ul.check-list li::before { content: "✔"; position: absolute; left: 0; color: #203a43; font-size: 18px; line-height: 1.5; }
+
+/* 会社概要・マップ */
+.info-list-container { width: 100%; }
+.info-list { display: table; width: 100%; margin: 0; }
+.info-row { display: table-row; border-bottom: 1px solid #eee; }
+.info-row:last-child { border-bottom: none; }
+.info-list dt {
+  display: table-cell; width: 30%; padding: 20px; font-weight: 700;
+  background-color: #f4f8fa; border-bottom: 1px solid #eee; color: #333; vertical-align: top;
+}
+.info-list dd {
+  display: table-cell; width: 70%; padding: 20px; margin: 0; border-bottom: 1px solid #eee; vertical-align: top;
+}
+.info-list .info-row:last-child dt, .info-list .info-row:last-child dd { border-bottom: none; }
+.map-container {
+  position: relative; width: 100%; overflow: hidden; border-radius: 8px;
+  padding-top: 56.25%; background: #eee;
+}
+.map-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+
+/* フロー・料金表・FAQ・フォーム・フッター */
+.flow-list {
+  counter-reset: flow-num; list-style: none; padding: 0;
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px;
+}
+.flow-item {
+  position: relative; flex: 1; min-width: 200px; background: #f9f9f9;
+  padding: 20px; border-radius: 8px; text-align: center; border: 1px solid #eee;
+}
+.flow-item::before {
+  counter-increment: flow-num; content: "STEP " counter(flow-num); display: block;
+  color: #203a43; font-weight: bold; font-size: 14px; margin-bottom: 10px;
+}
+.flow-item h3 { font-size: 18px; margin: 0 0 10px; }
+.flow-item p { font-size: 14px; margin: 0; color: #666; }
+
+.price-grid { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+.price-card {
+  flex: 1; min-width: 260px; max-width: 300px; background: #fff;
+  border: 1px solid #ddd; border-radius: 10px; text-align: center; padding: 30px 20px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.price-card.recommended {
+  border: 2px solid #203a43; background: #fff; position: relative;
+  transform: scale(1.05); z-index: 1; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+.price-card.recommended::after {
+  content: "RECOMMENDED"; position: absolute; top: -12px; left: 50%;
+  transform: translateX(-50%); background: #203a43; color: #fff;
+  padding: 4px 12px; font-size: 11px; border-radius: 20px; font-weight: bold; letter-spacing: 1px;
+}
+.price-name { font-size: 18px; font-weight: bold; color: #555; margin-bottom: 10px; }
+.price-amount { font-size: 28px; font-weight: bold; color: #203a43; margin-bottom: 20px; }
+.price-amount span { font-size: 14px; color: #999; font-weight: normal; }
+.price-features { list-style: none; padding: 0; margin: 0 0 20px; text-align: left; font-size: 14px; color: #666; }
+.price-features li { border-bottom: 1px solid #eee; padding: 10px 0; }
+.price-features li:last-child { border-bottom: none; }
+
+details.faq-item { margin-bottom: 15px; border: 1px solid #eee; border-radius: 8px; background: #fff; }
+summary.faq-question {
+  padding: 15px 20px; font-weight: bold; cursor: pointer; position: relative;
+  list-style: none; display: flex; align-items: center;
+}
+summary.faq-question::after { content: "+"; margin-left: auto; font-size: 20px; color: #203a43; font-weight: normal; }
+details[open] summary.faq-question::after { content: "-"; }
+.faq-answer { padding: 0 20px 20px; color: #555; font-size: 15px; border-top: 1px solid #f9f9f9; padding-top: 15px; }
+
+form label { display: block; font-weight: 700; margin-bottom: 8px; color: #333; }
+form input, form textarea {
+  width: 100%; padding: 15px; margin-bottom: 25px; font-size: 16px;
+  border-radius: 8px; border: 2px solid #eee; background: #fdfdfd; transition: border-color 0.3s;
+}
+form input:focus, form textarea:focus { outline: none; border-color: #203a43; background: #fff; }
+
+.btn {
+  display: inline-block; padding: 14px 40px; background: #203a43; color: #fff;
+  border-radius: 50px; text-decoration: none; font-weight: 700; border: none; cursor: pointer;
+  transition: background 0.3s, transform 0.2s; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); font-size: 16px;
+}
+.btn:hover { background: #3b606d; transform: translateY(-2px); }
+
+footer {
+  background: #111; color: #fff; text-align: center; padding: 30px; font-size: 13px; margin-top: auto;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* =========================================================
+   スマホ用調整 (ここが重要！)
+   ========================================================= */
+@media (max-width: 768px) {
+  /* ★スマホ専用の背景設定（ここを追加！） */
+  body {
+    /* 白い膜を0.85から0.75へ薄くする＝背景画像が濃く見える */
+    background-image: 
+      linear-gradient(rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.75)),
+      url("Gemini_Generated_Image_telbp4telbp4telb.jpg");
+    background-attachment: scroll; /* 背景固定を解除 */
+  }
+
+  /* ヘッダーとメニューの調整 */
+  .page-header { padding: 40px 15px; }
+  .header-content h1 { font-size: 24px; }
+  .header-content p { font-size: 14px; margin-top: 5px; }
+  .nav-container { flex-wrap: nowrap; justify-content: space-between; }
+  .main-nav a { padding: 12px 2px; font-size: 11px; white-space: nowrap; flex: 1; text-align: center; }
+
+  /* その他のスマホ調整 */
+  .info-list, .info-row, .info-list dt, .info-list dd { display: block; width: 100%; }
+  .info-list dt { background: transparent; padding-bottom: 5px; color: #203a43; border-bottom: none; }
+  .info-list dd { padding-top: 0; padding-bottom: 25px; }
+  .service-detail { display: block; }
+  .price-card.recommended { transform: none; }
+  .flow-list { flex-direction: column; }
+  section { padding: 30px 20px; }
+}
