@@ -259,3 +259,19 @@ footer {
   .flow-list { flex-direction: column; }
   section { padding: 30px 20px; }
 }
+
+/* =========================================================
+   スクロールアニメーション設定
+   ========================================================= */
+/* 初期状態：隠して、少し下にずらしておく */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+
+/* 表示状態：元の位置に戻して、見えるようにする */
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
